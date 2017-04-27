@@ -1,4 +1,4 @@
----?image=vue.png
+---?image=vue.jpg
 
 ---
 
@@ -21,33 +21,32 @@
 
 Un exemple:
 
-``` 
+```html
 <div id="app">
   {{ message }}
 </div>
 ```
-```
+```javascript
 new Vue({
   el: '#app',
   data: {
     message: 'Hello Vue!'
   }
 })
-
 ```
 
 ---
 
 ## Quelques directives
 
-##### v-bind : 'Binder' un attribut
+**v-bind : 'Binder' un attribut**
 
 `v-bind` ou simplement `:` (deux points)
 
 - `v-bind:href` devient `:href`
 - `v-bind:title` devient `:title`
 
-```
+```html
 <div id="app">
   <span v-bind:title="message"> {{ message }} </span>
 </div>
@@ -57,7 +56,7 @@ new Vue({
 
 ## Quelques directives
 
-##### v-on : Appel d'un événement (une méthode)
+**v-on : Appel d'un événement (une méthode)**
 
 `v-on` ou simplement `@` (arobase)
 
@@ -65,13 +64,60 @@ new Vue({
 - `v-on:change` devient `@change`
 - `v-on:keyup.enter` ou `@keyup.enter` (clic sur la touche Enter)
 
-```
+---
+
+## Quelques directives
+
+**v-on : Appel d'un événement (une méthode)**
+
+```html
 <div id="app">
-  <span v-bind:title="message"> {{ message }} </span>
+  <span @click="hello"> {{ message }} </span>
 </div>
 ```
-
+```javascript
+new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue!'
+  },
+  methods: {
+    hello: function() { 
+      alert(this.message); 
+    }
+  }
+})
+```
 
 ---
 
+## Quelques directives
+
+**v-on : Appel d'un événement (une méthode)**
+
+Modificateurs :
+- `prevent`: prevent default
+- `stop`: stop propagation
+- `once`: just once
+- `lazy`: binding on blur
+
+---
+
+## Autres directives
+
+- `v-if`, `v-else`: condition
+- `v-for`: loop
+- `v-model`: 2 way data binding
+
+---
+
+## Exercice 1
+
+[Workout](workout.jpg)
+
+---?image=workout.jpg
+
+*TODO*: Recupérer la branche `step0` et à partir d'elle essayer d'afficher une liste de TODOs statiques. 
+
+---
 The End :)
