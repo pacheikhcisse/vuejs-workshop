@@ -6,4 +6,11 @@
 
 new Vue({
     el: '.todoapp',
+    data : {
+        todos: [
+            {text: 'Aller au marché', done: false},
+            {text: 'Préparer tott vuejs', done: false},
+            {text: 'Faire merge request', done: false}
+        ]
+    }
 })

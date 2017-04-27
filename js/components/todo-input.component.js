@@ -3,9 +3,9 @@
  */
 
 Vue.component('todo-input', {
+    props: ['todos'],
     data: function () {
         return {
-            todos : [],
             newTodo : ''
         }
     },

@@ -9,10 +9,10 @@
     <section class="todoapp">
         <header class="header">
             <h1>todos</h1>
-            <todo-input></todo-input>
+            <todo-input :todos="todos"></todo-input>
         </header>
         <section class="main">
-            <todo-list></todo-list>
+            <todo-list :todos="todos"></todo-list>
         </section>
     </section>
     <script src="js/vue.js"></script>

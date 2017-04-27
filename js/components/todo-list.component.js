@@ -20,13 +20,9 @@ Vue.directive('todo-focus', {
 })
 
 Vue.component('todo-list', {
+    props: ['todos'],
     data: function () {
         return {
-            todos: [
-                {text: 'Aller au marché', done: false},
-                {text: 'Préparer tott vuejs', done: false},
-                {text: 'Faire merge request', done: false}
-            ],
             editedTodo: undefined
         }
     },
