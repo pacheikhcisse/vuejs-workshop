@@ -2,6 +2,10 @@
  * Created by a615213 on 24/04/2017.
  */
 
+Vue.filter('capitalize', function (val) {
+    return val.toUpperCase();
+})
+
 Vue.directive('todo-focus', {
     bind: function (el, binding) {
         if (binding.value) {

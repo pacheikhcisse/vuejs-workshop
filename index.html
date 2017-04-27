@@ -16,7 +16,7 @@
                 <li class="todo" :class="{completed: todo.done, editing: todo == editedTodo}" v-for="todo in todos">
                     <div class="view">
                         <input class="toggle" type="checkbox" v-model="todo.done">
-                        <label :class="{done:todo.done}" @dblclick="editTodo(todo)">{{todo.text}}</label>
+                        <label :class="{done:todo.done}" @dblclick="editTodo(todo)">{{todo.text | capitalize}}</label>
                     </div>
                     <button class="destroy" @click="removeTodo(todo)"></button>
                     <input class="edit" type="text" v-todo-focus="todo == editedTodo" v-model="todo.text"
