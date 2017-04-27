@@ -9,23 +9,15 @@
     <section class="todoapp">
         <header class="header">
             <h1>todos</h1>
-            <input class="new-todo" type="text" v-model="newTodo" @keyup.enter="addTodo" placeholder="What needs to be done?">
+            <todo-input></todo-input>
         </header>
         <section class="main">
-            <ul class="todo-list">
-                <li class="todo" :class="{completed: todo.done, editing: todo == editedTodo}" v-for="todo in todos">
-                    <div class="view">
-                        <input class="toggle" type="checkbox" v-model="todo.done">
-                        <label :class="{done:todo.done}" @dblclick="editTodo(todo)">{{todo.text | capitalize}}</label>
-                    </div>
-                    <button class="destroy" @click="removeTodo(todo)"></button>
-                    <input class="edit" type="text" v-todo-focus="todo == editedTodo" v-model="todo.text"
-                           @blur="finishEdit" @keyup.enter="finishEdit">
-                </li>
-            </ul>
+            <todo-list></todo-list>
         </section>
     </section>
     <script src="js/vue.js"></script>
+    <script src="js/components/todo-input.component.js"></script>
+    <script src="js/components/todo-list.component.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
