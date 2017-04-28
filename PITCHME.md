@@ -109,13 +109,13 @@ Modificateurs :
 - `v-for`: loop
 - `v-model`: 2 way data binding
 
----?image=workout.jpg
+---
 
 ### Objectif : Faire avec Vue une petite application de TODO comme TodoMVC
 
 ![TodoMVC](todo.gif)
 
----
+---?image=workout.jpg
 
 ### Exercice 1
 
@@ -247,6 +247,10 @@ var vm = new Vue({
 })
 ```
 
++++
+
+### Computed properties
+
 Mais plutôt ça :
 ```html
 <div id="example">
@@ -325,3 +329,5 @@ Voir [Component Options](http://012.vuejs.org/api/options.html) pour la liste co
 ### Solution TodoMVC
 
 La solution est disponible sur la branche `master`
+
+---?image=merci.png
