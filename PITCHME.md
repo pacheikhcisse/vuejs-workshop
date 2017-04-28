@@ -15,7 +15,7 @@
 - `methods`: méthodes utilisées dans les directives
 - etc. (voir [Vue api](https://vuejs.org/v2/api))
 
----
++++
 
 ## L'instance Vue
 
@@ -52,7 +52,7 @@ new Vue({
 </div>
 ```
 
----
++++
 
 ## Quelques directives
 
@@ -64,7 +64,7 @@ new Vue({
 - `v-on:change` devient `@change`
 - `v-on:keyup.enter` ou `@keyup.enter` (clic sur la touche Enter)
 
----
++++
 
 ## Quelques directives
 
@@ -89,7 +89,7 @@ new Vue({
 })
 ```
 
----
++++
 
 ## Quelques directives
 
@@ -101,7 +101,7 @@ Modificateurs :
 - `once`: just once
 - `lazy`: binding on blur
 
----
++++
 
 ## Autres directives
 
@@ -130,7 +130,7 @@ Vue.directive('focus', {
 })
 ```
 
----
++++
 
 ## Créer ses directives
 
@@ -160,7 +160,7 @@ new Vue({
 })
 ```
 
----
++++
 
 ## Créer ses directives
 
@@ -196,7 +196,7 @@ Caractérisé par le symbole pipe `|`
 
 Les computed properties pour une utilisation plus avancée des filtres
 
----
++++
 
 ## Filtres
 
