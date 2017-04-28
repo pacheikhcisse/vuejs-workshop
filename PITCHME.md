@@ -113,6 +113,10 @@ Modificateurs :
 
 ### Objectif : Faire avec Vue une petite application de TODO comme TodoMVC
 
+```shell
+git clone https://github.com/pacheikhcisse/vuejs-workshop.git 
+```
+
 ![TodoMVC](todo.gif)
 
 ---?image=workout.jpg
