@@ -8,7 +8,7 @@
 
 ---
 
-## L'instance Vue
+### L'instance Vue
 
 - `el`: element où greffer vuejs dans le DOM
 - `data`: toutes les variables qu’on souhaite injecter
@@ -17,7 +17,7 @@
 
 +++
 
-## L'instance Vue
+### L'instance Vue
 
 Un exemple:
 
@@ -37,7 +37,7 @@ new Vue({
 
 ---
 
-## Quelques directives
+### Quelques directives
 
 **v-bind : 'Binder' un attribut**
 
@@ -54,7 +54,7 @@ new Vue({
 
 +++
 
-## Quelques directives
+### Quelques directives
 
 **v-on : Appel d'un événement (une méthode)**
 
@@ -66,7 +66,7 @@ new Vue({
 
 +++
 
-## Quelques directives
+### Quelques directives
 
 **v-on : Appel d'un événement (une méthode)**
 
@@ -91,7 +91,7 @@ new Vue({
 
 +++
 
-## Quelques directives
+### Quelques directives
 
 **v-on : Appel d'un événement (une méthode)**
 
@@ -103,7 +103,7 @@ Modificateurs :
 
 +++
 
-## Autres directives
+### Autres directives
 
 - `v-if`, `v-else`: condition
 - `v-for`: loop
@@ -111,14 +111,20 @@ Modificateurs :
 
 ---?image=workout.jpg
 
-## Exercice 1
+### Objectif : Faire avec Vue une petite application de TODO comme TodoMVC
+
+![TodoMVC](todo.gif)
+
+---
+
+### Exercice 1
 
 
 *TODO*: Recupérer la branche `step0` et suivre les indications pour afficher une liste de TODOs statiques. 
 
 ---
 
-## Créer ses directives
+### Créer ses directives
 
 ```javascript
 Vue.directive('focus', {
@@ -132,7 +138,7 @@ Vue.directive('focus', {
 
 +++
 
-## Créer ses directives
+### Créer ses directives
 
 ```html
 <div id="example" v-demo:foo.a.b="message"></div>
@@ -162,7 +168,7 @@ new Vue({
 
 +++
 
-## Créer ses directives
+### Créer ses directives
 
 ```
 name: "demo"
@@ -175,14 +181,14 @@ vnode keys: tag, data, children, text, elm, ns, context, functionalContext, key,
 
 ---?image=workout.jpg
 
-## Exercice 2
+### Exercice 2
 
 *TODO*: Suivre les indications sur la branche `step1` afin de créer notre propre directive `v-todo-focus`. Celle ci 
 donne le focus au todo sur lequel on double clique pour l'éditer dans la liste des todos.  
 
 ---
 
-## Filtres
+### Filtres
 
 Caractérisé par le symbole pipe `|`
  
@@ -198,7 +204,7 @@ Les computed properties pour une utilisation plus avancée des filtres
 
 +++
 
-## Filtres
+### Filtres
 
 Dans notre cas:
  
@@ -213,3 +219,109 @@ Vue.filter('capitalize', function (val) {
     {{todo.text | capitalize}}
 </label>
 ```
+
+--- 
+
+### Computed properties
+
+- La propriété `data` est plus réservée aux expressions simples. 
+- Privilégier la propriété `computed` quand c'est des expressions avec beaucoup de logique
+
+
++++ 
+
+### Computed properties
+
+Ne pas faire ça :
+```html
+<div id="example">
+  {{ message.split('').reverse().join('') }}
+</div>
+```
+```javascript
+var vm = new Vue({
+  el: '#example',
+  data: {
+    message: 'Hello'
+  }
+})
+```
+
+Mais plutôt ça :
+```html
+<div id="example">
+  {{ reversedMessage }}
+</div>
+```
+```javascript
+var vm = new Vue({
+  el: '#example',
+  data: {
+    message: 'Hello'
+  }, 
+  computed: {
+      reversedMessage: function () {
+        return this.message.split('').reverse().join('')
+      }
+  }
+})
+```
+
+--- 
+
+### Composants
+
+**Encapsulation / réutilisation de code**
+
+```javascript
+Vue.component('my-component', {
+  // options
+})
+```
+
+```html
+<div id="example">
+  <my-component></my-component>
+</div>
+```
+
++++
+
+### Composants
+
+Vue component options:
+
+- `data`: pareil que pour l'instance Vue. Mais une fonction cette fois ci.
+- `props`: attriuts acceptés par le composant
+- `template`: code html du composant
+
+Voir [Component Options](http://012.vuejs.org/api/options.html) pour la liste complète des options.
+
+---
+
+### Exercice 3
+
+*TODO*: Suivre les indications sur la branche `step2` afin de créer et d'utiliser les composants 
+`todo-input` et `todo-list`.  
+
+---
+
+### La suite
+
+- Single Page Components
+- Vue Router
+- [...]
+
+---
+
+### De la bonne documentation
+
+- [Doc officiel](https://vuejs.org/v2/guide/)
+- [Laracasts: Vue 2 step by step](https://laracasts.com/series/learn-vue-2-step-by-step)
+- [Grafikart Vuejs tuto](https://www.grafikart.fr/formations/vuejs) 
+
+---
+
+### Solution TodoMVC
+
+La solution est disponible sur la branche `master`
