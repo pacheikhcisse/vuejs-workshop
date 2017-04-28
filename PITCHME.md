@@ -109,14 +109,12 @@ Modificateurs :
 - `v-for`: loop
 - `v-model`: 2 way data binding
 
----
+---?image=workout.jpg
 
 ## Exercice 1
 
 
 *TODO*: Recupérer la branche `step0` et suivre les indications pour afficher une liste de TODOs statiques. 
-
-?image=workout.jpg
 
 ---
 
@@ -175,15 +173,12 @@ modifiers: {"a":true,"b":true}
 vnode keys: tag, data, children, text, elm, ns, context, functionalContext, key, componentOptions, componentInstance, parent, raw, isStatic, isRootInsert, isComment, isCloned, isOnce
 ```
 
----
+---?image=workout.jpg
 
 ## Exercice 2
 
-
 *TODO*: Suivre les indications sur la branche `step1` afin de créer notre propre directive `v-todo-focus`. Celle ci 
 donne le focus au todo sur lequel on double clique pour l'éditer dans la liste des todos.  
-
-?image=workout.jpg
 
 ---
 
