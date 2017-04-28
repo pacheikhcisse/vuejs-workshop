@@ -113,11 +113,108 @@ Modificateurs :
 
 ## Exercice 1
 
-[Workout](workout.jpg)
 
----?image=workout.jpg
+*TODO*: Recupérer la branche `step0` et suivre les indications pour afficher une liste de TODOs statiques. 
 
-*TODO*: Recupérer la branche `step0` et à partir d'elle essayer d'afficher une liste de TODOs statiques. 
+?image=workout.jpg
 
 ---
-The End :)
+
+## Créer ses directives
+
+```javascript
+Vue.directive('focus', {
+  bind: function(el, binding, vnode) {},
+  inserted: function(el, binding, vnode) {},
+  update: function(el, binding, vnode, oldVnode) {},
+  componentUpdated: function(el, binding, vnode, oldVnode) {},
+  unbind: function(el, binding, vnode) {}
+})
+```
+
+---
+
+## Créer ses directives
+
+```html
+<div id="example" v-demo:foo.a.b="message"></div>
+```
+
+```javascript
+Vue.directive('demo', {
+  bind: function (el, binding, vnode) {
+    var s = JSON.stringify
+    el.innerHTML =
+      'name: '       + s(binding.name) + '<br>' +
+      'value: '      + s(binding.value) + '<br>' +
+      'expression: ' + s(binding.expression) + '<br>' +
+      'argument: '   + s(binding.arg) + '<br>' +
+      'modifiers: '  + s(binding.modifiers) + '<br>' +
+      'vnode keys: ' + Object.keys(vnode).join(', ')
+  }
+})
+
+new Vue({
+  el: '#example',
+  data: {
+    message: 'hello!'
+  }
+})
+```
+
+---
+
+## Créer ses directives
+
+```
+name: "demo"
+value: "hello!"
+expression: "message"
+argument: "foo"
+modifiers: {"a":true,"b":true}
+vnode keys: tag, data, children, text, elm, ns, context, functionalContext, key, componentOptions, componentInstance, parent, raw, isStatic, isRootInsert, isComment, isCloned, isOnce
+```
+
+---
+
+## Exercice 2
+
+
+*TODO*: Suivre les indications sur la branche `step1` afin de créer notre propre directive `v-todo-focus`. Celle ci 
+donne le focus au todo sur lequel on double clique pour l'éditer dans la liste des todos.  
+
+?image=workout.jpg
+
+---
+
+## Filtres
+
+Caractérisé par le symbole pipe `|`
+ 
+```html
+<!-- in mustaches -->
+{{ message | capitalize }}
+
+<!-- in v-bind -->
+<div v-bind:id="rawId | formatId"></div>
+```
+
+Les computed properties pour une utilisation plus avancée des filtres
+
+---
+
+## Filtres
+
+Dans notre cas:
+ 
+```javascript
+Vue.filter('capitalize', function (val) {
+    return val.toUpperCase();
+})
+```
+
+```html
+<label @dblclick="editTodo(todo)">
+    {{todo.text | capitalize}}
+</label>
+```
