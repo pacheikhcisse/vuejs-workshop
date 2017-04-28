@@ -2,8 +2,29 @@
  * Created by a615213 on 24/04/2017.
  */
 
+/*TODO 6: Implementer ici notre directive v-todo-focus: il donne le focus à l'élement sur lequel il est affecté quand cet élement est édité*/
+
 new Vue({
-    /*TODO 4: binder la classe todoapp du DOM à cette instance*/
-    /*TODO 5: creer une liste de todos statiques représentant les todos. ex: 1 todo = {text:'Aller au marché', done:false}*/
-    /*TODO 6: implementer les méthodes remove et addTodo autorisées par les TODO 1 et 3*/
+    el: '.todoapp',
+    data: {
+        todos: [
+            {text:'Aller au marché', done:false},
+            {text:'Préparer tott vuejs', done:false},
+            {text:'Faire merge request', done:false}
+        ],
+        newTodo: ''
+    },
+    methods: {
+        removeTodo: function (todo) {
+            var index = this.todos.indexOf(todo);
+            this.todos.splice(index, 1);
+        },
+        addTodo: function () {
+            this.todos.push(
+                {text: this.newTodo, done:false }
+            );
+            this.newTodo = '';
+        }
+        /*TODO 5: implementer les méthodes editTodo et finishTodo*/
+    }
 })

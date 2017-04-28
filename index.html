@@ -9,19 +9,21 @@
     <section class="todoapp">
         <header class="header">
             <h1>todos</h1>
-            <!--TODO 1: adapter cet input pour pouvoir ajouter un todo au clic sur Enter-->
-            <input class="new-todo" type="text" placeholder="What needs to be done?">
+            <input class="new-todo" type="text" v-model="newTodo" @keyup.enter="addTodo" placeholder="What needs to be done?">
         </header>
         <section class="main">
             <ul class="todo-list">
-                <!--TODO 2: lister tous les todos ici et set l'attribut classe d'un li à 'completed' si la valeur done du todo est true-->
-                <li class="todo">
+                <li class="todo" :class="{completed: todo.done}" v-for="todo in todos">
                     <div class="view">
-                        <input class="toggle" type="checkbox">
-                        <label></label>
+                        <input class="toggle" type="checkbox" v-model="todo.done">
+                        <!--TODO 1: au double clic de ce label, executer une fonction editTodo-->
+                        <label>{{todo.text}}</label>
                     </div>
-                    <!--TODO 3: au clic sur ce bouton, on doit remove le todo-->
-                    <button class="destroy"></button>
+                    <button class="destroy" @click="removeTodo(todo)"></button>
+                    <!--TODO 2: ce input est caché par défaut par le CSS. Si le tag li parent a la classe 'editing', il apparaît. l'afficher en jouant sur la classe du tag li parent et la fonction editTodo. (astuce: ajouter une variable editedTodo)-->
+                    <!--TODO 3: appliquer notre directive v-todo-focus sur ce input-->
+                    <!--TODO 4: Executer une fonction finishEdit lorsque ce input pert le focus ou lorsqu'on tape sur Enter. La valeur doit être sauvegardée.-->
+                    <input class="edit" type="text">
                 </li>
             </ul>
         </section>
