@@ -9,21 +9,20 @@
     <section class="todoapp">
         <header class="header">
             <h1>todos</h1>
+            <!--TODO 1: Transformer ce input en composant 'todo-input' puis l'inclure ici-->
             <input class="new-todo" type="text" v-model="newTodo" @keyup.enter="addTodo" placeholder="What needs to be done?">
         </header>
         <section class="main">
             <ul class="todo-list">
-                <li class="todo" :class="{completed: todo.done}" v-for="todo in todos">
+                <!--TODO 2: Faire de ce listing des todos un composant 'todo-list' puis l'inclure ici-->
+                <li class="todo" :class="{completed: todo.done, editing: todo == editedTodo}" v-for="todo in todos">
                     <div class="view">
                         <input class="toggle" type="checkbox" v-model="todo.done">
-                        <!--TODO 1: au double clic de ce label, executer une fonction editTodo-->
-                        <label>{{todo.text}}</label>
+                        <label @dblclick="editTodo(todo)">{{todo.text}}</label>
                     </div>
                     <button class="destroy" @click="removeTodo(todo)"></button>
-                    <!--TODO 2: ce input est caché par défaut par le CSS. Si le tag li parent a la classe 'editing', il apparaît. l'afficher en jouant sur la classe du tag li parent et la fonction editTodo. (astuce: ajouter une variable editedTodo)-->
-                    <!--TODO 3: appliquer notre directive v-todo-focus sur ce input-->
-                    <!--TODO 4: Executer une fonction finishEdit lorsque ce input pert le focus ou lorsqu'on tape sur Enter. La valeur doit être sauvegardée.-->
-                    <input class="edit" type="text">
+                    <input class="edit" type="text" v-todo-focus="todo == editedTodo" v-model="todo.text"
+                           @blur="finishEdit" @keyup.enter="finishEdit">
                 </li>
             </ul>
         </section>

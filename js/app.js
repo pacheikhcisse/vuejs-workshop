@@ -2,7 +2,20 @@
  * Created by a615213 on 24/04/2017.
  */
 
-/*TODO 6: Implementer ici notre directive v-todo-focus: il donne le focus à l'élement sur lequel il est affecté quand cet élement est édité*/
+Vue.directive('todo-focus', {
+    bind: function (el, binding) {
+        if (binding.value) {
+            el.focus();
+        }
+    },
+    update: function (el, binding) {
+        if (binding.value) {
+            el.focus();
+        }
+    }
+})
+
+/*TODO 3: placer les différents élements (data, methods, directive) dans les composants adéquats*/
 
 new Vue({
     el: '.todoapp',
@@ -12,7 +25,8 @@ new Vue({
             {text:'Préparer tott vuejs', done:false},
             {text:'Faire merge request', done:false}
         ],
-        newTodo: ''
+        newTodo: '',
+        editedTodo: null
     },
     methods: {
         removeTodo: function (todo) {
@@ -24,7 +38,12 @@ new Vue({
                 {text: this.newTodo, done:false }
             );
             this.newTodo = '';
+        },
+        editTodo: function (todo) {
+            this.editedTodo = todo;
+        },
+        finishEdit: function (todo) {
+            this.editedTodo = null;
         }
-        /*TODO 5: implementer les méthodes editTodo et finishTodo*/
     }
 })
